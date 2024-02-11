@@ -16,6 +16,7 @@ public class OrderService {
     public void addOrderPartnerPair(String orderId , String partnerId){
         orderRepository.addOrderPartnerPair(orderId,partnerId);
     }
+    public List<String> getAllOrders(){return orderRepository.getAllOrders();}
     public Order getOrderById(String orderId){
         return orderRepository.getOrderById(orderId);
     }

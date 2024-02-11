@@ -25,6 +25,7 @@ public class OrderRepository {
         temp.add(orderId);
         deliveryPartnerOrderAssignment.put(partnerId,temp);
     }
+    public List<String> getAllOrders(){return new ArrayList<>(totalOrders.keySet());}
     public Order getOrderById(String orderId){return totalOrders.get(orderId);}
     public DeliveryPartner getPartnerById(String partnerId){ return deliveryPartnerID.get(partnerId);}
     public List<String> getOrdersByPartnerId(String partnerId){return deliveryPartnerOrderAssignment.get(partnerId);}
