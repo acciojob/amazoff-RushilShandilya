@@ -52,7 +52,9 @@ public class OrderRepository {
             int time = totalOrders.get(orderID).getDeliveryTime();
             if (time > maxTime) maxTime = time;
         }
-        String ans = maxTime/60+":"+maxTime%60;
+        String ans = "";
+        if(maxTime%60>=10) ans = maxTime/60 + ":" + maxTime%60;
+        else ans = maxTime/60 + ":0" +maxTime%60;
         return ans;
     }
     public void deletePartnerById(String partnerId){
