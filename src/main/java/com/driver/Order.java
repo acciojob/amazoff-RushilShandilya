@@ -12,8 +12,11 @@ public class Order {
         // The deliveryTime has to converted from string to int and then stored in the attribute
         //deliveryTime  = HH*60 + MM
         this.id = id;
-        String[] deliveryTimeArray = deliveryTime.split(":");
-        this.deliveryTime = Integer.parseInt(deliveryTimeArray[0])*60 + Integer.parseInt(deliveryTimeArray[1]);
+        //String[] deliveryTimeArray = deliveryTime.split(":");
+        //this.deliveryTime = Integer.parseInt(deliveryTimeArray[0])*60 + Integer.parseInt(deliveryTimeArray[1]);
+        Integer hour = Integer.valueOf(deliveryTime.substring(0, 2));
+        Integer minutes = Integer.valueOf(deliveryTime.substring(3));
+        this.deliveryTime = hour*60 + minutes;
     }
 
     public String getId() {
