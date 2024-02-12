@@ -19,6 +19,10 @@ public class OrderRepository {
     public void addOrder(Order order){totalOrders.put(order.getId(),order);}
     public void addPartner(String partnerId){deliveryPartnerID.put(partnerId,new DeliveryPartner(partnerId));}
     public void addOrderPartnerPair(String orderId,String partnerId){
+        int getNumberOfOrders = deliveryPartnerID.get(partnerId).getNumberOfOrders();
+        ++getNumberOfOrders;
+        deliveryPartnerID.get(partnerId).setNumberOfOrders(getNumberOfOrders);
+
         orderAssigned.put(orderId,new Order(orderId));
         if(!deliveryPartnerOrderAssignment.containsKey(partnerId)) deliveryPartnerOrderAssignment.put(partnerId, new ArrayList<>());
         ArrayList<String> temp = deliveryPartnerOrderAssignment.get(partnerId);
